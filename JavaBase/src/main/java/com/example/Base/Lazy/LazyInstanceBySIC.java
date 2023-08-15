@@ -1,4 +1,5 @@
 package com.example.Base.Lazy;
+
 /**
  * @description: 懒汉式-需要使用时才创建---静态内部类 static inner class
  * 利用Java类加载机制，将实例的创建延迟到静态内部类的加载过程中。
@@ -7,13 +8,14 @@ package com.example.Base.Lazy;
  * @date: 2023/8/13 22:07
  */
 public class LazyInstanceBySIC {
-    private LazyInstanceBySIC(){}
+    private LazyInstanceBySIC() {
+    }
 
-    private static class InstanceHolder{
+    private static class InstanceHolder {
         private static final LazyInstanceBySIC INSTANCE = new LazyInstanceBySIC();
     }
 
-    public static LazyInstanceBySIC getInstance(){
+    public static LazyInstanceBySIC getInstance() {
         return InstanceHolder.INSTANCE;
     }
 }

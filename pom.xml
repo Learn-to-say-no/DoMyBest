@@ -9,6 +9,7 @@
     <modules>
         <module>JavaBase</module>
         <module>LeetCode</module>
+        <module>Common</module>
     </modules>
     <name>multiServerLearn</name>
     <description>multiServerLearn</description>

@@ -12,4 +12,8 @@ public class HungryInstance {
     public static final HungryInstance instance = new HungryInstance();
 
     private HungryInstance(){}
+
+    public static HungryInstance getInstance(){
+        return instance;
+    }
 }

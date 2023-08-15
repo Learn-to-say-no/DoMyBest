@@ -10,7 +10,18 @@ package com.example.Base.Lazy;
  * @date: 2023/8/13 22:10
  */
 public class LazyInstanceByDCL {
-    private static LazyInstanceByDCL instance;
+    //可见行，禁止指令重排序
+    //为什么要使用validate
+    //new关键字创建对象不是原子操作，创建一个对象会经历以下的步骤：
+    //1.在堆内存开辟内存空间
+    //2.调用构造方法，初始化对象
+    //3.引用变量指向堆内存空间
+    //而为了提高性能，编译器和处理器会对代码执行顺序进行指令重排序
+    //执行顺序可能变为132
+    //132时，引用变量指向堆内存空间，这个对象不为null，但是没有初始化
+    //其他线程有可能这个时候进入了getInstance的第一个(if(instance==null)) 判断不为null
+    //导致错误使用了没有初始化的非null实例，这样就会出现异常，这个就是DCL失效问题
+    private volatile static LazyInstanceByDCL instance;
 
     private LazyInstanceByDCL(){}
 

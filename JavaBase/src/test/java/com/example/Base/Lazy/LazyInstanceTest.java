@@ -22,24 +22,13 @@ public class LazyInstanceTest {
 
     @Test
     public void getInstance() {
-        List<Thread> threads = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            Thread thread = new Thread(() -> {
+        for (int i = 0; i < 10000; i++) {
+            new Thread(() -> {
                 LazyInstance instance = LazyInstance.getInstance();
-                System.out.println(instance);
-            });
-//            threads.add(thread);
-            thread.start();
+                System.out.println("多线程创建的单例: "+instance);
+            }).start();
         }
 
-//        // 等待所有线程完成
-//        for (Thread thread : threads) {
-//            try {
-//                thread.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 
     @Test
