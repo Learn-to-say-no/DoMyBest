@@ -11,7 +11,10 @@ public class LazyInstanceBySIC {
     private LazyInstanceBySIC() {
     }
 
+
+    //静态内部类
     private static class InstanceHolder {
+        //静态常量，类加载的时候初始化
         private static final LazyInstanceBySIC INSTANCE = new LazyInstanceBySIC();
     }
 
