@@ -7,9 +7,9 @@ spring:
   application:
     name: business
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/microServer?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql://121.40.166.14:3306/microServer?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
     username: root
-    password: Win7mysql@7c
+    password: aliyun7mysql@7c
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:
