@@ -1,5 +1,6 @@
 package com.example.multiServerLearn.business.service.impl;
 
+import com.example.multiServerLearn.business.config.MyAppConfig;
 import com.example.multiServerLearn.business.domin.po.User;
 import com.example.multiServerLearn.business.mapper.UserMapper;
 import com.example.multiServerLearn.business.service.AuthService;
@@ -18,9 +19,13 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Autowired
+    MyAppConfig myAppConfig;
+
     @Override
     public User getUserInfo() {
         List<User> users = userMapper.selectList(null);
+        System.out.println(myAppConfig);
         return users.isEmpty() ? null : users.get(0);
     }
 
